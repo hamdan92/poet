@@ -91,6 +91,8 @@ $("#ajzInput").append(`<div class="col">
 }
 
  $.get( "get_bait", function( data ) {
+	console.log(data)
+
   jdata= JSON.parse(data)
   console.log(jdata[0])
 });
