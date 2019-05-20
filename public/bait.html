@@ -58,13 +58,12 @@
 		
 
 	<script>
-var a = 'نعد المشرفية والعوالي'
-var words_a = a.split(" ");
-
-var b = 'وتقتلنا المنون بلا قتال'
-var words_b = b.split(" ");
 
 
+function generate(first,second){
+var words_a = first.split(" ");
+
+var words_b = second.split(" ");
 for(var i=words_a.length-1;i!=-1;i--){
 $("#sdrText").append(`<div class="col">
 						<h1 class="Display-2">${words_a[i]}</h1>
@@ -89,14 +88,13 @@ $("#ajzInput").append(`<div class="col">
 
 					</div>`)
 }
-
+}
  $.get( "get_bait", function( data ) {
-	console.log(data)
 
   jdata= JSON.parse(data)
-    console.log(jdata)
+console.log(jdata)
 
-  console.log(jdata['first'])
+  generate(jdata['first'],jdata['second'])
 });
 
 
