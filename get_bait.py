@@ -150,7 +150,7 @@ data = pd.read_csv('./abbasi/abbasi_review.csv', encoding='utf-8')
 
 for i in range(len(data)):
     if data['review'][i] == 0:
-        print ('{"first":'+data[data.columns[0]][i]=',"second":'+data[data.columns[1]][i]+'}')
+        print ('{"first":'+data[data.columns[0]][i]+',"second":'+data[data.columns[1]][i]+'}')
         
         break
 
