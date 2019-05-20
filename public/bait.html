@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous">
+
+	<title>المصحح</title>
+</head>
+
+<body>
+	<!-- As a heading -->
+	<div class='container'>
+		<nav class="navbar-header text-center navbar-light bg-light">
+			<span class="navbar-brand mb-0 h1">المصحح</span>
+		</nav>
+
+		<div class='row'>
+			<div class='col text-center' id='ajz'>
+				<div class=row id='ajzText'>
+
+				</div>
+
+				<div class=row id='ajzInput'>
+
+				</div>
+			</div>
+			<div class='col text-center' id='sdr'>
+				<div class=row id='sdrText'>
+
+				</div>
+
+				<div class=row id='sdrInput'>
+
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+		<script src="js/papaparse.min.js"></script>
+		
+
+	<script>
+var a = 'نعد المشرفية والعوالي'
+var words_a = a.split(" ");
+
+var b = 'وتقتلنا المنون بلا قتال'
+var words_b = b.split(" ");
+
+
+for(var i=words_a.length-1;i!=-1;i--){
+$("#sdrText").append(`<div class="col">
+						<h1 class="Display-2">${words_a[i]}</h1>
+					</div>`)
+
+
+$("#sdrInput").append(`<div class="col">
+						<input type="text" class="form-control" id="usr">
+
+					</div>`)
+}
+
+
+for(var i=words_b.length-1;i!=-1;i--){
+$("#ajzText").append(`<div class="col">
+						<h1 class="Display-2">${words_b[i]}</h1>
+					</div>`)
+
+
+$("#ajzInput").append(`<div class="col">
+						<input type="text" class="form-control" id="usr">
+
+					</div>`)
+}
+
+ $.get( "get_bait", function( data ) {
+  console.log(data);
+  alert( "Load was performed." );
+});
+
+Papa.parse("csv/abbasi_review.csv", {
+	download: true,
+	step: function(row) {
+		//console.log("Row:", row.data);
+		//console.log(row.data[0][4])
+	},
+	complete: function() {
+		console.log("All done!");
+	}
+});
+    </script>
+</body>
+
+</html>
