@@ -91,20 +91,10 @@ $("#ajzInput").append(`<div class="col">
 }
 
  $.get( "get_bait", function( data ) {
-  console.log(data);
-  alert( "Load was performed." );
+  console.log(data['0']);
 });
 
-Papa.parse("csv/abbasi_review.csv", {
-	download: true,
-	step: function(row) {
-		//console.log("Row:", row.data);
-		//console.log(row.data[0][4])
-	},
-	complete: function() {
-		console.log("All done!");
-	}
-});
+
     </script>
 </body>
 
