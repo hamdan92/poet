@@ -150,7 +150,15 @@ data = pd.read_csv('./abbasi/abbasi_review.csv', encoding='utf-8')
 
 for i in range(len(data)):
     if data['review'][i] == 0:
-        print ('{"first":"'+data[data.columns[0]][i]+'","second":"'+data[data.columns[1]][i]+'"}')
+        f_refined=[]
+        s_refined=[]
+        for w in data[data.columns[0]][i].split(" "):
+            f_refined.append(refine(w))
+
+        for w in data[data.columns[1]][i].split(" "):
+            s_refined.append(refine(w))
+
+        print ('{"first":"'+data[data.columns[0]][i]+'","second":"'+data[data.columns[1]][i]+'","s_refined":"'+s_refined+'","f_refined":"'+f_refined+'"}')
         
         break
 
