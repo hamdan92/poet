@@ -152,14 +152,22 @@ for i in range(len(data)):
     if data['review'][i] == 0:
         f_refined=[]
         s_refined=[]
-        for w in data[data.columns[0]][i].split(" "):
-            f_refined.append(refine(w))
+        for w in data[data.columns[0]][i].strip().split(" "):
+            f_refined.append(refine(clean(w)))
+            print (refine(clean(w)))
 
-        for w in data[data.columns[1]][i].split(" "):
-            s_refined.append(refine(w))
+        for w in data[data.columns[1]][i].strip().split(" "):
+            s_refined.append(refine(clean(w)))
+            print (refine(clean(w)))
 
-        print ('{"first":"'+data[data.columns[0]][i]+'","second":"'+data[data.columns[1]][i]+'","s_refined":"'+s_refined+'","f_refined":"'+f_refined+'"}')
+        #out_str=''{"first":"'+data[data.columns[0]][i]+'","second":"'+data[data.columns[1]][i]+'","s_refined":"''
         
+        f_refined.append(refine(w))
+        output={"first":data[data.columns[0]][i].strip(),
+                    "second":data[data.columns[1]][i].strip(),
+                    "s_refined":s_refined,
+                    "f_refined":f_refined}
+        print(output)        
         break
 
 
